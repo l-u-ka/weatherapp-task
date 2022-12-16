@@ -1,6 +1,6 @@
 <?php
-namespace Pixelpro\Helloworld\Model\ResourceModel;
-class Post extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
+namespace Luka\WeatherApp\Model\ResourceModel;
+class Weather extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
 	
 	public function __construct(

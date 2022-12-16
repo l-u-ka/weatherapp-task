@@ -8,7 +8,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     /**
      * @var string
      */
-    protected $_idFieldName = 'report_id';
+    protected $_idFieldName = 'id';
     //protected $_eventPrefix = 'weather_collection';
 
     /**
