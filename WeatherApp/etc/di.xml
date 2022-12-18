@@ -1,6 +1,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
-    <preference for="Luka\WeatherApp\Api\WeatherRepositoryInterface" type="Task\Weather\Model\WeatherRepository" />
-    <preference for="Luka\WeatherApp\Api\Data\WeatherInterface" type="Task\Weather\Model\Weather" />
+    <preference for="Luka\WeatherApp\Api\WeatherRepositoryInterface" type="Luka\WeatherApp\Model\WeatherRepository" />
+    <preference for="Luka\WeatherApp\Api\Data\WeatherInterface" type="Luka\WeatherApp\Model\Weather" />
     <virtualType name="Luka\WeatherApp\Model\ResourceModel\Weather\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">luka_weatherapp_data</argument>

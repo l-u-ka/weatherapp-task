@@ -17,12 +17,12 @@ class Index extends Template
 
     public function getFormAction()
     {
-        return $this->getUrl('weather/index/save', ['_secure' => true]);
+        return $this->getUrl('weatherapp/index/save', ['_secure' => true]);
     }
 
     public function getPdfAction()
     {
-        return $this->getUrl('weather/index/pdf', ['_secure' => true]);
+        return $this->getUrl('weatherapp/index/pdf', ['_secure' => true]);
     }
 
     public function getList()

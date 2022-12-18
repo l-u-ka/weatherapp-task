@@ -1,5 +1,5 @@
 <?php
-namespace Task\Weather\Model;
+namespace Luka\WeatherApp\Model;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchResultsInterfaceFactory;
@@ -70,16 +70,6 @@ class WeatherRepository implements WeatherRepositoryInterface
         }
         return $object;
     }
-    
-     public function getList($searchCriteria)
-    {
-        $searchResults = $this->searchResultsFactory;
-        $searchResults->setSearchCriteria($searchCriteria);
-        $collection = $this->CollectionFactory->create();
-        return $collection;
-
-    }
-    
 
     /**
      * @inheritDoc

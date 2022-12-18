@@ -12,8 +12,7 @@
         <column xsi:type="varchar" name="wind_speed" nullable="false" length="255" comment="Wind Speed" />
         <column xsi:type="varchar" name="sunrise" nullable="false" length="255" comment="Sunrise" />
         <column xsi:type="varchar" name="sunset" nullable="false" length="255" comment="Sunset" />
-        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
-        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Update Time"/>
+        <column xsi:type="timestamp" name="checked_on" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Checked on Time"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id" />
         </constraint>

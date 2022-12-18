@@ -1,92 +1,97 @@
 <?php
-
 namespace Luka\WeatherApp\Model;
 
+use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
-use Luka\WeatherApp\Model\ResourceModel\Weather as WeatherResourceModel;
-
-
 use Luka\WeatherApp\Api\Data\WeatherInterface;
+use Luka\WeatherApp\Model\ResourceModel\Weather as ResourceModel;
 
-
-class Weather extends AbstractModel implements WeatherInterface {
-    /**
-     * @var string
-     */
+/**
+ * Class Customer
+ */
+class Weather extends AbstractModel implements
+    WeatherInterface,
+    IdentityInterface
+{
     const CACHE_TAG = 'luka_weatherapp_data';
-    protected $_cacheTag = 'luka_weatherapp_data';
-    protected $_eventPrefix = 'luka_weatherapp_data';
 
-    protected function _construct()
+    /**
+     * Init
+     */
+    protected function _construct() // phpcs:ignore PSR2.Methods.MethodDeclaration
     {
-        $this->_init(WeatherResourceModel::class);
-    }
-    public function getIdentities(){
-	return [self::CACHE_TAG . '_' . $this->getId()];
-    }
-    public function getDefaultValues(){
-	$values = [];
-	return $values;
-    }
-    public function setCity(string $city){
-        return $this->setData(WeatherInterface::CITY, $city);
-    }
-    public function getCity(){
-        return $this->getData(self::CITY);
-    }
-    public function setCountry(string $country){
-        return $this->setData(self::COUNTRY, $country);
-    }
-    public function getCountry(){
-        return $this->getData(self::COUNTRY);
-    }
-    public function setDescription(string $description){
-        return $this->setData(self::DESCRIPTION, $description);
-    }
-    public function getDescription(){
-        return $this->getData(self::DESCRIPTION);
-    }
-    public function setTemperature(float $temperature){
-        return $this->setData(self::TEMPERATURE, $temperature);
+        $this->_init(ResourceModel::class);
     }
 
-    public function getTemperature(){
-        return $this->getData(self::TEMPERATURE);
+    /**
+     * @inheritDoc
+     */
+    public function getIdentities()
+    {
+        return [self::CACHE_TAG . '_' . $this->getId()];
     }
-    public function setFeelsLike(int $feelsLike){
-        return $this->setData(self::FEELS_LIKE, $feelsLike);
+
+    public function getId()
+    {
+        return $this->getData('id');
     }
-    public function getFeelsLike(){
-        return $this->getData(self::FEELS_LIKE);
+    public function setId($id)
+    {
+        return $this->setData('id', $id);
     }
-    public function setPressure(int $pressure){
-        return $this->setData(self::PRESSURE, $pressure);
+
+    public function setCity($city)
+    {
+        return $this->setData('city', $city);
     }
-    public function getPressure(){
-        return $this->getData(self::PRESSURE);
+
+    public function setCountry($country)
+    {
+        return $this->setData('country', $country);
     }
-    public function setHumidity(int $humidity){
-        return $this->setData(self::HUMIDITY, $humidity);
+
+    public function setDescription($description)
+    {
+        return $this->setData('description', $description);
     }
-    public function getHumidity(){
-        return $this->getData(self::HUMIDITY);
+
+    public function setTemperature($temperature)
+    {
+        return $this->setData('temperature', $temperature);
     }
-    public function setWindSpeed(float $windSpeed){
-        return $this->setData(self::WIND_SPEED, $windSpeed);
+
+    public function setFeelsLike($feels_like)
+    {
+        return $this->setData('feels_like', $feels_like);
     }
-    public function getWindSpeed(){
-        return $this->getData(self::WIND_SPEED);
+
+    public function setPressure($pressure)
+    {
+        return $this->setData('pressure', $pressure);
     }
-    public function setSunrise(string $sunrise){
-        return $this->setData(self::SUNRISE, $sunrise);
+
+    public function setHumidity($humidity)
+    {
+        return $this->setData('humidity', $humidity);
     }
-    public function getSunrise(){
-        return $this->getData(self::SUNRISE);
+
+    public function setWindSpeed($wind_speed)
+    {
+        return $this->setData('wind_speed', $wind_speed);
     }
-    public function setSunset(string $sunset){
-        return $this->setData(self::SUNSET, $sunset);
+
+    public function setSunrise($sunrise)
+    {
+        return $this->setData('sunrise', $sunrise);
     }
-    public function getSunset(){
-       return $this->getData(self::SUNSET);
+
+    public function setSunset($sunset)
+    {
+        return $this->setData('sunset', $sunset);
+    }
+
+    public function setCheckedOn($checked_on)
+    {
+        return $this->setData('checked_on', $checked_on);
     }
 }

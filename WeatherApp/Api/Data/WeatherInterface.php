@@ -1,135 +1,82 @@
 <?php
-
 namespace Luka\WeatherApp\Api\Data;
-use Magento\Framework\Api\ExtensibleDataInterface;
- 
-interface WeatherInterface extends ExtensibleDataInterface {
-    /**
-     * String constants for property names
-     */
-    const CITY = "city";
-    const COUNTRY = "country";
-    const DESCRIPTION = "description";
-    const TEMPERATURE = "temperature";
-    const FEELS_LIKE = "feels_like";
-    const PRESSURE = "pressure";
-    const HUMIDITY = "humidity";
-    const WIND_SPEED = "wind_speed";
-    const SUNRISE = "sunrise";
-    const SUNSET = "sunset";
 
+/**
+ * Interface WeatherInterface
+ *
+ * @api
+ */
+interface WeatherInterface
+{
     /**
-     * @return mixed
+     * @param int $weather_id
+     * @return $this
      */
-    public function getId();
+    public function setId($id);
 
     /**
      * @param string $city
-     * @return mixed
+     * @return $this
      */
-    public function setCity(string $city);
-
-    /**
-     * @return mixed
-     */
-    public function getCity();
+    public function setCity($city);
 
     /**
      * @param string $country
-     * @return mixed
+     * @return $this
      */
-    public function setCountry(string $country);
-
-    /**
-     * @return mixed
-     */
-    public function getCountry();
+    public function setCountry($country);
 
     /**
      * @param string $description
-     * @return mixed
+     * @return $this
      */
-    public function setDescription(string $description);
+    public function setDescription($description);
 
     /**
-     * @return mixed
+     * @param string $temperature
+     * @return $this
      */
-    public function getDescription();
+    public function setTemperature($temperature);
 
     /**
-     * @param float $temperature
-     * @return mixed
+     * @param string $feels_like
+     * @return $this
      */
-    public function setTemperature(float $temperature);
+    public function setFeelsLike($feels_like);
 
     /**
-     * @return mixed
+     * @param string $pressure
+     * @return $this
      */
-    public function getTemperature();
+    public function setPressure($pressure);
 
     /**
-     * @param int $feelsLike
-     * @return mixed
+     * @param string $humidity
+     * @return $this
      */
-    public function setFeelsLike(int $feelsLike);
+    public function setHumidity($humidity);
 
     /**
-     * @return mixed
+     * @param string $wind_speed
+     * @return $this
      */
-    public function getFeelsLike();
-
-    /**
-     * @param int $pressure
-     * @return mixed
-     */
-    public function setPressure(int $pressure);
-
-    /**
-     * @return int
-     */
-    public function getPressure();
-
-    /**
-     * @param int $humidity
-     * @return mixed
-     */
-    public function setHumidity(int $humidity);
-
-    /**
-     * @return mixed
-     */
-    public function getHumidity();
-
-    /**
-     * @param float $windSpeed
-     * @return mixed
-     */
-    public function setWindSpeed(float $windSpeed);
-
-    /**
-     * @return mixed
-     */
-    public function getWindSpeed();
+    public function setWindSpeed($wind_speed);
 
     /**
      * @param string $sunrise
-     * @return mixed
+     * @return $this
      */
-    public function setSunrise(string $sunrise);
-
-    /**
-     * @return mixed
-     */
-    public function getSunrise();
+    public function setSunrise($sunrise);
 
     /**
      * @param string $sunset
-     * @return mixed
+     * @return $this
      */
-    public function setSunset(string $sunset);
+    public function setSunset($sunset);
 
     /**
-     * @return mixed
+     * @param string $checked_on
+     * @return $this
      */
-    public function getSunset();
+    public function setCheckedOn($checked_on);
 }
