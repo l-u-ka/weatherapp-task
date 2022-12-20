@@ -6,32 +6,23 @@ use Magento\Framework\App\Action\Context;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
-
 use Luka\WeatherApp\Api\WeatherRepositoryInterface;
 use Luka\WeatherApp\Api\Data\WeatherInterface;
 
-class Save extends \Magento\Framework\App\Action\Action
-{
+class Save extends \Magento\Framework\App\Action\Action {
     protected $_pageFactory;
     protected $_weatherRepository;
     protected $_weatherModel;
 
-    public function __construct(
-        Context $context,
-        PageFactory $pageFactory,
-        TimezoneInterface $timezone,
-        WeatherRepositoryInterface $weatherRepository,
-        WeatherInterface $weatherInterface
-    )
-    {
-        $this->_pageFactory = $pageFactory;
-        $this->_weatherRepository=$weatherRepository;
-        $this->_weatherModel = $weatherInterface;
-        $this->timezone = $timezone;
-        return parent::__construct($context);
+    public function __construct(Context $context, PageFactory $pageFactory, TimezoneInterface $timezone,
+        WeatherRepositoryInterface $weatherRepository, WeatherInterface $weatherInterface){
+        	$this->_pageFactory = $pageFactory;
+        	$this->_weatherRepository=$weatherRepository;
+        	$this->_weatherModel = $weatherInterface;
+        	$this->timezone = $timezone;
+        	return parent::__construct($context);
     }
-    public function execute()
-    {
+    public function execute() {
         $resultRedirect = $this->resultRedirectFactory->create();
 
         $get_name = $_GET['name'];

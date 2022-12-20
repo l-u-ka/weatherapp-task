@@ -11,8 +11,7 @@ use Magento\Framework\Api\SearchCriteriaInterface;
  *
  * @api
  */
-interface WeatherRepositoryInterface
-{
+interface WeatherRepositoryInterface {
     /**
      *
      * @param WeatherInterface $weather

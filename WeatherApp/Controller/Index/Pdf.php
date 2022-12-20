@@ -1,26 +1,24 @@
 <?php
 namespace Luka\WeatherApp\Controller\Index;
+
 use Luka\WeatherApp\Model\ResourceModel\Weather\CollectionFactory;
-class Pdf extends \Magento\Framework\App\Action\Action
-{
+
+class Pdf extends \Magento\Framework\App\Action\Action {
     protected $_pageFactory;
     protected $collectionFactory;
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
-        CollectionFactory $collectionFactory,
-        \Magento\Framework\View\Result\PageFactory $pageFactory)
-    {
-        $this->_pageFactory = $pageFactory;
-        $this->collectionFactory = $collectionFactory;
-        return parent::__construct($context);
+        \Magento\Framework\App\Action\Context $context, CollectionFactory $collectionFactory,
+        \Magento\Framework\View\Result\PageFactory $pageFactory) {
+        	$this->_pageFactory = $pageFactory;
+        	$this->collectionFactory = $collectionFactory;
+        	return parent::__construct($context);
     }
-    public function execute()
-    {
+    public function execute() {
         $collection = $this->collectionFactory ->create();;
-        $pdf = new \Zend_Pdf(); //Create new PDF file
+        $pdf = new \Zend_Pdf();
         $height = 550;
         $page = $pdf->newPage('1200:570');
-        $page->setFont(\Zend_Pdf_Font::fontWithName(\Zend_Pdf_Font::FONT_HELVETICA), 13);  //Set Font
+        $page->setFont(\Zend_Pdf_Font::fontWithName(\Zend_Pdf_Font::FONT_HELVETICA), 13);
         $pdf->pages[] = $page;
 
         foreach ($collection as $item) {

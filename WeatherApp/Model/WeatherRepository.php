@@ -6,7 +6,6 @@ use Magento\Framework\Api\SearchResultsInterfaceFactory;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
-
 use Luka\WeatherApp\Api\WeatherRepositoryInterface;
 use Luka\WeatherApp\Api\Data\WeatherInterface;
 use Luka\WeatherApp\Model\WeatherFactory;
@@ -16,8 +15,7 @@ use Luka\WeatherApp\Model\ResourceModel\Weather\CollectionFactory;
 /**
  * Class CustomerRepository
  */
-class WeatherRepository implements WeatherRepositoryInterface
-{
+class WeatherRepository implements WeatherRepositoryInterface {
     protected $objectFactory;
     protected $objectResourceModel;
     protected $collectionFactory;
@@ -48,8 +46,7 @@ class WeatherRepository implements WeatherRepositoryInterface
      *
      * @throws CouldNotSaveException
      */
-    public function save(WeatherInterface $object)
-    {
+    public function save(WeatherInterface $object){
         try {
             $this->objectResourceModel->save($object);
         } catch (\Exception $e) {
@@ -61,8 +58,7 @@ class WeatherRepository implements WeatherRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function getById($id)
-    {
+    public function getById($id) {
         $object = $this->objectFactory->create();
         $this->objectResourceModel->load($object, $id);
         if (!$object->getId()) {
@@ -74,8 +70,7 @@ class WeatherRepository implements WeatherRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function delete(WeatherInterface $object)
-    {
+    public function delete(WeatherInterface $object) {
         try {
             $this->objectResourceModel->delete($object);
         } catch (\Exception $exception) {
@@ -87,8 +82,7 @@ class WeatherRepository implements WeatherRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function deleteById($id)
-    {
+    public function deleteById($id) {
         return $this->delete($this->getById($id));
     }
 }

@@ -6,8 +6,7 @@ namespace Luka\WeatherApp\Api\Data;
  *
  * @api
  */
-interface WeatherInterface
-{
+interface WeatherInterface {
     /**
      * @param int $weather_id
      * @return $this
